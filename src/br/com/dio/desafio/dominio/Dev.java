@@ -12,6 +12,7 @@ public class Dev {
 
     public void inscreverBootcamp(Bootcamp bootcamp){
         this.conteudosInscritos.addAll(bootcamp.getConteudos());
+        bootcamp.getDevsInscritos().add(this);
     }
     public void progredir (){
         Optional<Conteudo> conteudo = this.conteudosInscritos.stream().findFirst();
@@ -20,7 +21,7 @@ public class Dev {
             this.conteudosInscritos.remove(conteudo.get());
 
         }else {
-            System.out.println("Não está Matriculado em nenhum curso!");
+            System.err.println("Não está Matriculado em nenhum curso!");
         }
     }
     public double calcularTotalXp(){
